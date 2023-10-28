@@ -152,7 +152,7 @@ export class GpioGarageDoorAccessory implements AccessoryPlugin {
     }
 
     if (this.config.gpioPinOpen !== this.config.gpioPinClose) {
-      await GPIO.promise.setup(this.config.gpioPinClose, GPIO.DIR_OUT, GPIO.EDGE_BOTH);      
+      await GPIO.promise.setup(this.config.gpioPinClose, GPIO.DIR_OUT, GPIO.EDGE_BOTH); 
       if (this.pinHigh && this.config.gpioPinClose > 8) { // GPIO pins >  8 default to 0
         GPIO.write(this.config.gpioPinClose, true);
       } else if (!this.pinHigh && this.config.gpioPinOpen <= 8) {
