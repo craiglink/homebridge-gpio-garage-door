@@ -144,20 +144,10 @@ export class GpioGarageDoorAccessory implements AccessoryPlugin {
   async setupGpio(): Promise<void> {
     this.pinHigh = !this.config.reverseOutput;
 
-    await GPIO.promise.setup(this.config.gpioPinOpen, GPIO.DIR_OUT, GPIO.EDGE_BOTH);
-    if (this.pinHigh && this.config.gpioPinOpen <= 8) { // GPIO pins >  8 default to 0
-      GPIO.write(this.config.gpioPinOpen, false);
-    } else if (!this.pinHigh && this.config.gpioPinOpen > 8) {
-      GPIO.write(this.config.gpioPinOpen, true);
-    }
+    await GPIO.promise.setup(this.config.gpioPinOpen, this.pinHigh ? GPIO.DIR_HIGH : GPIO.DIR_LOW, GPIO.EDGE_BOTH);
 
     if (this.config.gpioPinOpen !== this.config.gpioPinClose) {
-      await GPIO.promise.setup(this.config.gpioPinClose, GPIO.DIR_OUT, GPIO.EDGE_BOTH);
-      if (this.pinHigh && this.config.gpioPinClose <= 8) { // GPIO pins >  8 default to 0
-        GPIO.write(this.config.gpioPinClose, false);
-      } else if (!this.pinHigh && this.config.gpioPinClose > 8) {
-        GPIO.write(this.config.gpioPinClose, true);
-      }
+      await GPIO.promise.setup(this.config.gpioPinClose, this.pinHigh ? GPIO.DIR_HIGH : GPIO.DIR_LOW, GPIO.EDGE_BOTH);
     }
 
     if (this.config.gpioStateInputEnabled) {
