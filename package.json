@@ -1,11 +1,11 @@
 {
-  "name": "@silviokennecke/homebridge-gpio-garage-door",
+  "name": "@craiglink/homebridge-gpio-garage-door",
   "displayName": "Homebridge GPIO garage door",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use GPIO output as HomeKit garage door",
   "license": "Apache-2.0",
   "author": {
-    "name": "Silvio Kennecke"
+    "name": "Silvio Kennecke / Craig Link"
   },
   "funding": [
     {
@@ -15,10 +15,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/silviokennecke/homebridge-gpio-garage-door.git"
+    "url": "git://github.com/craiglink/homebridge-gpio-garage-door.git"
   },
   "bugs": {
-    "url": "https://github.com/silviokennecke/homebridge-gpio-garage-door/issues"
+    "url": "https://github.com/craiglink/homebridge-gpio-garage-door/issues"
   },
   "engines": {
     "node": ">=14.18.1",
